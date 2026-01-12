@@ -1,0 +1,23 @@
+# Maven / Java
+target/
+.m2/
+*.class
+*.log
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+
+# Spring Boot
+*.jar
+*.war
+*.ear
+
+# Misc
+*.tmp
+*.swp
+
