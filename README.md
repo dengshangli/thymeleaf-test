@@ -5,7 +5,7 @@
 - **Thymeleaf**（Spring Boot `spring-boot-starter-thymeleaf`）
 - **Velocity**（`velocity-engine-core`，在 Playground 页面里直接渲染字符串模板）
 
-默认启动后访问：`http://localhost:8080/playground`
+默认启动后访问：`http://localhost:8189/playground`
 
 ## 环境要求
 
@@ -30,16 +30,16 @@ java -jar target/thymeleaf-test-1.0.0.jar
 
 启动后打开：
 
-- `http://localhost:8080/playground`：模板渲染 Playground（支持 Thymeleaf / Velocity）
-- `http://localhost:8080/test-email`：渲染内置示例邮件模板（Thymeleaf）
+- `http://localhost:8189/playground`：模板渲染 Playground（支持 Thymeleaf / Velocity）
+- `http://localhost:8189/test-email`：渲染内置示例邮件模板（Thymeleaf）
 
 ## Docker 运行（一键）
 
 项目自带 `start.sh`，会自动：
 
-- 清理占用 **8080** 的容器端口映射（如果有）
+- 清理占用 **8189** 的容器端口映射（如果有）
 - `docker build` 构建镜像
-- `docker run -d -p 8080:8080` 后台启动容器
+- `docker run -d -p 8189:8189` 后台启动容器
 
 运行：
 
@@ -47,7 +47,7 @@ java -jar target/thymeleaf-test-1.0.0.jar
 ./start.sh
 ```
 
-打开：`http://localhost:8080/playground`
+打开：`http://localhost:8189/playground`
 
 查看日志：
 
@@ -81,7 +81,7 @@ docker rm -f thymeleaf-test
 示例：
 
 ```bash
-curl -sS -X POST "http://localhost:8080/playground/render" \
+curl -sS -X POST "http://localhost:8189/playground/render" \
   -H "Content-Type: application/json" \
   -d '{
     "engine": "thymeleaf",
@@ -109,10 +109,10 @@ curl -sS -X POST "http://localhost:8080/playground/render" \
 
 ## 常见问题
 
-### 1) 8080 端口被占用
+### 1) 8189 端口被占用
 
-- 改用别的端口启动（本地运行）：`--server.port=xxxx`
-- 或停止占用 8080 的进程/容器后再启动
+- 改用别的端口启动（本地运行）：`--server.port=xxxx`（默认端口已在 `src/main/resources/application.properties` 里设置为 8189）
+- 或停止占用 8189 的进程/容器后再启动
 
 ### 2) Docker 拉镜像很慢 / 访问不到 Docker Hub
 
